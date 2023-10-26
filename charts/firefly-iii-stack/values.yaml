@@ -6,11 +6,6 @@ firefly-db:
     tag: 10-alpine
     pullPolicy: IfNotPresent
 
-  storage:
-    class: nfs-client
-    accessModes: ReadWriteMany
-    dataSize: 1Gi
-
   # environment variables
   configs:
     RESTORE_URL: ""

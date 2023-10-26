@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: "fireflyiii/core"
   pullPolicy: IfNotPresent
-  tag: version-5.6.14
+  tag: version-6.0.27
 
 imagePullSecrets: []
 nameOverride: ""
@@ -29,6 +29,7 @@ config:
   # -- Directly defined environment variables. Use this for non-secret configuration values.
   env:
     DB_CONNECTION: pgsql
+    DB_HOST: "firefly-iii-firefly-db"
     DB_PORT: "5432"
     DB_DATABASE: firefly
     DB_USERNAME: firefly
@@ -36,6 +37,8 @@ config:
     DEFAULT_LOCALE: "equal"
     TZ: "Europe/Amsterdam"
     TRUSTED_PROXIES: "**"
+    APP_KEY: "SomeRandomStringOf32CharsExactly"
+    
 
 # -- Create a new Secret from values file to store sensitive environment variables. Make sure to keep your secrets encrypted in the repository! For example, you can use the 'helm secrets' plugin (https://github.com/jkroepke/helm-secrets) to encrypt and manage secrets. If the 'config.existingSecret' value is set, a new Secret will not be created.
 secrets:
