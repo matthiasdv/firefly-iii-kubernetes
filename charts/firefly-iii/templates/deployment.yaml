@@ -44,6 +44,13 @@ spec:
         {{- end }}
         {{- end }}
         {{- if or (.Values.config.env) (.Values.config.existingSecret) }}
+        env:
+          - name: DB_HOST
+          {{- if .Values.dbNameOverride }}
+            value: {{.Values.dbNameOverride }}
+          {{- else }}
+            value: "firefly-iii-firefly-db"
+          {{- end }}
         envFrom:
           {{- if .Values.config.env }}
           - configMapRef:

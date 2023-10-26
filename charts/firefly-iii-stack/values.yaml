@@ -18,10 +18,16 @@ firefly-db:
     TZ: Europe/Berlin
 
   backupSchedule: "0 3 * * *"
+  fullnameOverride: firefly-db
 
 firefly-iii:
   # -- Set to false to not deploy Firefly III
   enabled: true
+  dbNameOverride: firefly-db
+  config:
+    # -- Directly defined environment variables. Use this for non-secret configuration values.
+    env:
+      APP_KEY: "SomeRandomStringOf32CharsExactly"
 
 importer:
   # -- Set to false to not deploy the importer
