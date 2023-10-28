@@ -1,4 +1,3 @@
-
 resources:
   - mysql.yaml
   - firefly-iii.yaml
